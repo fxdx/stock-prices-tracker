@@ -38,6 +38,7 @@ class SQLDatabaseOperator:
                                                                                                 api_data_dict['pc'])
         cursor = self.sqliteConnection.cursor()
         cursor.execute(sqlite_insert_data_query)
+        self.sqliteConnection.commit()
         cursor.close()
         self.close_connection()
 
