@@ -1,11 +1,6 @@
 import sqlite3
 
 
-def convert_tuple_to_string(tup):
-    string = ''.join(tup)
-    return string
-
-
 class SQLDatabaseOperator:
     def connect_to_database(self):
         self.sqliteConnection = sqlite3.connect('stock_database.db')
@@ -60,8 +55,8 @@ class SQLDatabaseOperator:
         self.close_connection()
 
 
-if __name__ == '__main__':
-    name = 'NIO'
-    data = {'o': 24.123, 'h': 30.02, 'l': 22.03, 'pc': 23}
-    test = SQLDatabaseOperator()
-    test.insert_data_to_database(name, data)
+#if __name__ == '__main__':
+    #name = 'NIO'
+    #data = {'o': 24.123, 'h': 30.02, 'l': 22.03, 'pc': 23}
+    #test = SQLDatabaseOperator()
+    #test.insert_data_to_database(name, data)
