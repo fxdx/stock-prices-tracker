@@ -1,4 +1,4 @@
-from SECRETS import FINNHUB_TOKEN
+from app.SECRETS import FINNHUB_TOKEN
 import requests
 
 

@@ -1,11 +1,11 @@
-import APIRequestFinnhub
-from .. import stock_database
+import app.APIRequestFinnhub
+import stock_database.database_operators
 
 
 class EventManager:
     def __init__(self):
         self.database_handler = stock_database.database_operators.SQLDatabaseOperator()
-        self.api_handler = APIRequestFinnhub.APIRequest()
+        self.api_handler = app.APIRequestFinnhub.APIRequest()
 
     def convert_tuple_to_string(tup):
         string = ''.join(tup)
