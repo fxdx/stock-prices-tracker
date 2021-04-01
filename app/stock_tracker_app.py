@@ -7,7 +7,7 @@ class EventManager:
         self.database_handler = stock_database.database_operators.SQLDatabaseOperator()
         self.api_handler = app.APIRequestFinnhub.APIRequest()
 
-    def convert_tuple_to_string(tup):
+    def convert_tuple_to_string(self, tup):
         string = ''.join(tup)
         return string
 

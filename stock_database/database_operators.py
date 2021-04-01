@@ -1,9 +1,10 @@
 import sqlite3
+import datetime
 
 
 class SQLDatabaseOperator:
     def connect_to_database(self):
-        self.sqliteConnection = sqlite3.connect('stock_database.db')
+        self.sqliteConnection = sqlite3.connect('stock_database/stock_database.db')
 
     def close_connection(self):
         if self.sqliteConnection:
@@ -24,9 +25,10 @@ class SQLDatabaseOperator:
 
     def insert_data_to_database(self, ticker_name, api_data_dict):
         self.connect_to_database()
+        today = str(datetime.datetime.now())
 
         sqlite_insert_data_query = '''INSERT INTO {}(open_price, high_price, low_price, previous_close_price, date)\
-                                                      VALUES ({}, {}, {}, {}, 'data');'''.format(ticker_name,\
+                                                      VALUES ({}, {}, {}, {}, datetime());'''.format(ticker_name,\
                                                                                                 api_data_dict['o'],\
                                                                                                 api_data_dict['h'],\
                                                                                                 api_data_dict['l'],\
