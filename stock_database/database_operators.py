@@ -27,7 +27,7 @@ class SQLDatabaseOperator:
         self.connect_to_database()
 
         sqlite_insert_data_query = '''INSERT INTO {}(open_price, high_price, low_price, previous_close_price, date)\
-                                                      VALUES ({}, {}, {}, {}, datetime());'''.format(ticker_name,\
+                                                      VALUES ({}, {}, {}, {}, datetime('now', '+2 hours'));'''.format(ticker_name,\
                                                                                                 api_data_dict['o'],\
                                                                                                 api_data_dict['h'],\
                                                                                                 api_data_dict['l'],\
