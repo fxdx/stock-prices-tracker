@@ -27,10 +27,14 @@ class EventManager:
     def insert_to_database(self, c_ticker, data_dict):
         self.database_handler.insert_data_to_database(c_ticker, data_dict)
 
+    def create_tables_for_tickers(self, t_list):
+        self.database_handler.sqlite_creating_tables_for_tickers(t_list)
+
 
 if __name__ == '__main__':
     app = EventManager()
     tickers = app.get_tickers_from_database()
+    app.create_tables_for_tickers(tickers)
 
     for c_t in tickers:
         quote_data_dict = app.send_and_return_quote_request(c_t)

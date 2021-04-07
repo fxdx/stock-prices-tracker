@@ -51,6 +51,7 @@ class SQLDatabaseOperator:
                                     previous_close_price FLOAT,
                                     date TEXT);'''.format(ticker)
             cursor.execute(sqlite_create_table_query)
+            self.sqliteConnection.commit()
 
         cursor.close()
         self.close_connection()
