@@ -1,6 +1,8 @@
 # stock-prices-tracker
 Simple NASDAQ stock companies tracker. Created using Finnhub.io API, python and SQLite.
 
+# Requirements
+Requests (use pip to install)
 
 # How to use?
 1) Create your own account on https://finnhub.io/
