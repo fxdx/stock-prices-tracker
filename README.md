@@ -6,7 +6,8 @@ Simple NASDAQ stock companies tracker. Created using Finnhub.io API, python and 
 1) Create your own account on https://finnhub.io/
 2) Get your API Key
 3) Create SECRETS.py in /app 
-4) FINNHUB_TOKEN = 'YOUR_OWN_API_KEY'
+4) In the SECTRETS.py insert just one line with your Finnhub API key: 
+   FINNHUB_TOKEN = 'YOUR_OWN_API_KEY'
 5) Setup your database by running sqlite_database_setup.py
 6) Insert stock tickers that interests you following this scheme
 
