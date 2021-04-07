@@ -25,7 +25,6 @@ class SQLDatabaseOperator:
 
     def insert_data_to_database(self, ticker_name, api_data_dict):
         self.connect_to_database()
-        today = str(datetime.datetime.now())
 
         sqlite_insert_data_query = '''INSERT INTO {}(open_price, high_price, low_price, previous_close_price, date)\
                                                       VALUES ({}, {}, {}, {}, datetime());'''.format(ticker_name,\
