@@ -24,8 +24,11 @@ class EventManager:
         quote_data = self.api_handler.quote_build_and_send_api_request_returns_dict(company_ticker)
         return quote_data
 
-    def insert_to_database(self, c_ticker, data_dict):
+    def insert_stock_data_from_quote_api_to_database(self, c_ticker, data_dict):
         self.database_handler.insert_data_to_database(c_ticker, data_dict)
+
+    def insert_new_stock_company_to_database(self, company_name, company_ticker):
+        self.database_handler.insert_new_company_to_stock_data(company_name, company_ticker)
 
     def create_tables_for_tickers(self, t_list):
         self.database_handler.sqlite_creating_tables_for_tickers(t_list)
@@ -38,4 +41,4 @@ if __name__ == '__main__':
 
     for c_t in tickers:
         quote_data_dict = app.send_and_return_quote_request(c_t)
-        app.insert_to_database(c_t, quote_data_dict)
+        app.insert_stock_data_from_quote_api_to_database(c_t, quote_data_dict)

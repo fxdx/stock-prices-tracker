@@ -14,13 +14,22 @@ class SQLDatabaseOperator:
 
         sqlite_select_ticker_query = '''SELECT ticker from Stock_data'''
         cursor = self.sqliteConnection.cursor()
-        cursor.execute(sqlite_select_ticker_query)
+        cursor.execute('SELECT ticker from Stock_data')
         # IT GETS LIST OF TUPLES, SO IT NEEDS TO BE CONVERTED
         tickers = cursor.fetchall()
         cursor.close()
         self.close_connection()
 
         return tickers
+
+    def insert_new_company_to_stock_data(self, c_name, ticker_name):
+        self.connect_to_database()
+
+        cursor = self.sqliteConnection.cursor()
+        cursor.execute('INSERT INTO Stock_data(company_name, ticker) VALUES (?, ?);', (c_name, ticker_name))
+        self.sqliteConnection.commit()
+        cursor.close()
+        self.close_connection()
 
     def insert_data_to_database(self, ticker_name, api_data_dict):
         self.connect_to_database()
@@ -56,8 +65,8 @@ class SQLDatabaseOperator:
         self.close_connection()
 
 
-#if __name__ == '__main__':
-    #name = 'NIO'
-    #data = {'o': 24.123, 'h': 30.02, 'l': 22.03, 'pc': 23}
-    #test = SQLDatabaseOperator()
-    #test.insert_data_to_database(name, data)
+# if __name__ == '__main__':
+    #name = 'ATT'
+    #ticker = 'T'
+    #app = SQLDatabaseOperator()
+    #app.insert_new_company_to_stock_data(name, ticker)
