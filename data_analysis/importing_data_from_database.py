@@ -1,7 +1,8 @@
 import pandas
 import sqlite3
 
-class SQLitePandasImports:
+
+class SQLiteStockHistoryPandasImports:
     def connect_to_database(self):
         self.sqliteConnection = sqlite3.connect('stock_database/stock_database.db')
 
@@ -18,8 +19,9 @@ class SQLitePandasImports:
         self.close_connection()
         return df
 
+
 # testing purposes
-#if __name__ == '__main__':
+# if __name__ == '__main__':
 #    app = SQLitePandasImports()
 #    df = app.read_database_to_pandas_dataframe('AAPL')
 #    print(df.head())
