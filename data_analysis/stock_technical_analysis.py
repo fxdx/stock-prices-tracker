@@ -7,7 +7,7 @@ class TechnicalAnalysis:
         self.stock_dataframe = stock_df
 
     def return_moving_average(self, days_number):
-        return days_number.previous_close_price.rolling(days_number).mean()
+        return self.stock_dataframe.previous_close_price.rolling(days_number).mean()
 
-    def plot_close_prices(self, days_number):
-        pass
+    def return_close_prices(self, days_number):
+        return self.stock_dataframe.previous_close_price.rolling(days_number)
